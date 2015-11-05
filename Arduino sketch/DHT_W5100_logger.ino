@@ -3,7 +3,7 @@
 #include <dht.h>
 #include <stdlib.h>
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-char server[] = "c2-works.com";
+char server[] = "mysite.com";
 // Set the static IP address to use if the DHCP fails to assign
 IPAddress ip(192,168,1,11);
 EthernetClient client;
@@ -37,7 +37,7 @@ void loop()
     PostData=PostData+dtostrf(DHT.humidity,5,1,buffr);
 
     client.println("POST /arduino/index.php HTTP/1.1");
-    client.println("Host:  c2-works.com");
+    client.println("Host:  mysite.com");
     client.println("User-Agent: Arduino/1.0");
     client.println("Connection: close");
     client.println("Content-Type: application/x-www-form-urlencoded;");
